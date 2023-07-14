@@ -101,7 +101,7 @@ export default function ProfileDesc() {
                 className="cursor-text"
 				>
 					<p className="text-left text-gray-800 text-xl font-normal pt-2 mt-2">
-						I'm a front-end developer from{" "}
+						I am a front-end developer from{" "}
 						<span className=" bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-blue-500 font-semibold">
 							Montreal
 						</span>
