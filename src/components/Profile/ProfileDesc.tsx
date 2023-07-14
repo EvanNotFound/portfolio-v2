@@ -59,13 +59,6 @@ export default function ProfileDesc() {
 
 	return (
 		<motion.div
-			drag
-			dragConstraints={{
-                top:0,
-                left:0,
-                right:0,
-                bottom:0,
-            }}
 			variants={{
 				offscreen: {
 					opacity: 0,
@@ -83,7 +76,7 @@ export default function ProfileDesc() {
 					},
 				},
 			}}
-			className="h-1/2 sm:h-full bg-gray-50 border border-black/5 flex flex-col justify-between items-center p-8 relative shadow-sm cursor-grab"
+			className="h-[57%] sm:h-full bg-gray-50 border border-black/5 flex flex-col justify-between items-center p-8 relative shadow-sm cursor-grab"
 		>
 			<div className="relative h-full w-full sm:w-96">
 				<p className="text-left text-gray-800 text-3xl font-bold border-b-2 border-gray-200 pb-1 cursor-text">
@@ -129,7 +122,7 @@ export default function ProfileDesc() {
 				>
 					<div
 						id="lang-item"
-						className="flex flex-row justify-between pb-1 items-center border-b-2 border-gray-200 mt-40 sm:mt-0"
+						className="flex flex-row justify-between pb-1 items-center border-b-2 border-gray-200 mt-52 sm:mt-0"
 					>
 						<p className="text-lg font-semibold">Skill Name</p>
 						<p className="text-gray-500 text-lg">Level</p>
