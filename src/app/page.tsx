@@ -24,7 +24,7 @@ export default function Home() {
 	return (
 		<main className="min-h-screen flex flex-col items-center justify-center gap-2">
 			<motion.div
-				className="fixed top-0 left-0 right-0 h-4 bg-black/90 origin-left"
+				className="fixed top-0 left-0 right-0 h-4 bg-black/90 origin-left z-90"
 				style={{ scaleX }}
 			/>
 			<section
