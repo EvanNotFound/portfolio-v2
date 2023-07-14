@@ -45,15 +45,23 @@ export default function NextPageButton(props: Props) {
       }
     };
     
-      const handleScroll = () => {
-        if(is4InView && !is3InView) {
-            setIsVisible(false);
-            return;
-        }
-        setIsVisible(true);
+    const handleScroll = () => {
+      if(is4InView && !is3InView) {
+          setIsVisible(false);
+          return;
+      }
+      setIsVisible(true);
+    };
+  
+    useEffect(() => {
+      // Add the event listener when the component is mounted
+      window.addEventListener("scroll", handleScroll);
+  
+      // Remove the event listener when the component is unmounted
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
       };
-    
-        window.addEventListener("scroll", handleScroll);
+    }, []);
 
 	return (
 		<div className="position fixed w-screen left-0 bottom-0 flex justify-center items-center h-24">
