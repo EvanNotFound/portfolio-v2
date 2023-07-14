@@ -129,6 +129,14 @@ export default function ProfileDesc() {
 						clipPath: "inset(0% 0% 50% 0%)",
 					}}
 				>
+                    <div id="lang-item" className="flex flex-row justify-between pb-1 items-center border-b-2 border-gray-200">
+                        <p className="text-lg font-semibold">
+                            Skill Name
+                        </p>
+                        <p className="text-gray-500 text-lg">
+                            Level
+                        </p>
+                    </div>
 					<ProgrammingLang
 						lang="HTML"
 						level={5}
