@@ -5,6 +5,8 @@ import ThisIsTitle from "@/components/ThisIsTitle";
 import NextPageButton from "@/components/NextPageButton";
 import React, { useRef } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
+import ProfileDesc from "@/components/Profile/ProfileDesc";
+import ProfilePic from "@/components/Profile/ProfilePic";
 
 export default function Home() {
 	const section1 = useRef<null | HTMLDivElement>(null);
@@ -38,10 +40,18 @@ export default function Home() {
 			<motion.section
 				ref={section2}
 				id="section2"
-				className="flex flex-col items-center justify-center h-screen"
+				className="flex flex-row items-center justify-center h-screen w-4/5 p-20 gap-10 "
+        // style={{
+        //   backgroundImage: "linear-gradient(to right, rgb(243,244,246) 1.2px, transparent 1.2px), linear-gradient(to bottom, rgb(243,244,246) 1.2px, transparent 1.2px);",
+        //   backgroundSize: "20px 20px",
+        //   backgroundPosition: "-10px -10px",
+        // }}
 				initial="offscreen"
 				whileInView="onscreen"
+        viewport={{ once: false, amount: 0.2 }}
 			>
+        <ProfilePic />
+        <ProfileDesc />
         
       </motion.section>
 
