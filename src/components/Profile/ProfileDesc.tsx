@@ -185,9 +185,9 @@ export default function ProfileDesc() {
 						viewBox="0 0 24 24"
 						fill="none"
 						stroke="currentColor"
-						stroke-width="2.5"
-						stroke-linecap="round"
-						stroke-linejoin="round"
+						strokeWidth="2.5"
+						strokeLinecap="round"
+						strokeLinejoin="round"
 						className="feather feather-chevron-left ml-1"
                         style={{
                             transformOrigin: "50% 50%",
