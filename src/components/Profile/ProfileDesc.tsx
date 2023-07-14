@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import ProgrammingLang from "./ProgrammingLang";
 import { useAnimate, stagger, motion, AnimatePresence } from "framer-motion";
-import { ChevronDownIcon } from "@primer/octicons-react";
+
+const descDragConstraints = {
+    top: -8,
+    left: -8,
+    right: 8,
+    bottom: 8,
+};
+
 
 const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });
 
@@ -57,6 +64,8 @@ export default function ProfileDesc() {
 
 	return (
 		<motion.div
+            drag
+            dragConstraints={descDragConstraints}
 			variants={{
 				offscreen: {
 					opacity: 0,
@@ -74,13 +83,13 @@ export default function ProfileDesc() {
 					},
 				},
 			}}
-			className="h-full bg-gray-50 border border-black/5 flex flex-col justify-between items-center p-8 relative shadow-sm"
+			className="h-full bg-gray-50 border border-black/5 flex flex-col justify-between items-center p-8 relative shadow-sm cursor-grab"
 		>
 			<div className="relative h-full w-96">
-				<p className="text-left text-gray-800 text-3xl font-bold border-b-2 border-gray-200 pb-1">
+				<p className="text-left text-gray-800 text-3xl font-bold border-b-2 border-gray-200 pb-1 cursor-text">
 					Hi there 👋
 				</p>
-				<p className="text-left text-gray-800 text-xl font-normal pt-2 mt-2">
+				<p className="text-left text-gray-800 text-xl font-normal pt-2 mt-2 cursor-text">
 					My name is{" "}
 					<span className=" bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-yellow-500 font-bold">
 						Jiashao Luo
@@ -88,36 +97,8 @@ export default function ProfileDesc() {
 					.
 				</p>
 
-				<motion.div
-					initial="hidden"
-					animate="visible"
-					variants={{
-						hidden: {
-							opacity: 0,
-							y: 100,
-						},
-						visible: {
-							opacity: 1,
-							y: 0,
-							transition: {
-								delay: 0,
-								type: "spring",
-								stiffness: 300,
-								damping: 17,
-								duration: 0.1,
-							},
-						},
-					}}
-					exit={{
-						opacity: 0,
-						transition: {
-							delay: 0,
-							type: "spring",
-							stiffness: 300,
-							damping: 17,
-							duration: 0.1,
-						},
-					}}
+				<div
+                className="cursor-text"
 				>
 					<p className="text-left text-gray-800 text-xl font-normal pt-2 mt-2">
 						I'm a front-end developer from{" "}
@@ -132,7 +113,7 @@ export default function ProfileDesc() {
 					<p className="text-left text-gray-800 text-xl font-normal pt-2 mt-2">
 						Nice to meet you!
 					</p>
-				</motion.div>
+				</div>
 			</div>
 
 			{/* Programming Lang */}
@@ -142,7 +123,7 @@ export default function ProfileDesc() {
 			>
 				<motion.div
 					id="list"
-					className="flex flex-col justify-center gap-2 w-full p-8 absolute top-0 left-0 right-0 bottom-28 bg-gray-100"
+					className="flex flex-col justify-center gap-2 w-full p-8 absolute top-0 left-0 right-0 bottom-28 bg-gray-100 cursor-auto"
 					style={{
 						pointerEvents: isExpanded ? "auto" : "none",
 						clipPath: "inset(0% 0% 50% 0%)",

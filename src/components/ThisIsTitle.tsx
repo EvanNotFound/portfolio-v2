@@ -57,7 +57,7 @@ export default function ThisIsTitle() {
 
 	return (
 		<motion.div
-            className="cursor-pointer"
+            className="cursor-grab"
 			initial="hidden"
 			animate="visible"
 			variants={variants}
