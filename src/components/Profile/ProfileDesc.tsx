@@ -1,13 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import ProgrammingLang from "./ProgrammingLang";
 import { useAnimate, stagger, motion, AnimatePresence } from "framer-motion";
+import { useIsSmall } from "@/hooks/useMediaQuery";
 
-const descDragConstraints = {
-    top: -8,
-    left: -8,
-    right: 8,
-    bottom: 8,
-};
 
 
 const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });
@@ -16,15 +11,15 @@ function useMenuAnimation(isOpen: boolean) {
 	const [scope, animate] = useAnimate();
 
 	useEffect(() => {
-        animate(
-            ".feather-chevron-left",
-            {
-                rotate: isOpen ? 90 : 0,
-            },
-            {
-                duration: 0.2,
-            }
-        )
+		animate(
+			".feather-chevron-left",
+			{
+				rotate: isOpen ? 90 : 0,
+			},
+			{
+				duration: 0.2,
+			}
+		);
 		animate(
 			"div#list",
 			{
@@ -64,8 +59,13 @@ export default function ProfileDesc() {
 
 	return (
 		<motion.div
-            drag
-            dragConstraints={descDragConstraints}
+			drag
+			dragConstraints={{
+                top:0,
+                left:0,
+                right:0,
+                bottom:0,
+            }}
 			variants={{
 				offscreen: {
 					opacity: 0,
@@ -83,9 +83,9 @@ export default function ProfileDesc() {
 					},
 				},
 			}}
-			className="h-full bg-gray-50 border border-black/5 flex flex-col justify-between items-center p-8 relative shadow-sm cursor-grab"
+			className="h-1/2 sm:h-full bg-gray-50 border border-black/5 flex flex-col justify-between items-center p-8 relative shadow-sm cursor-grab"
 		>
-			<div className="relative h-full w-96">
+			<div className="relative h-full w-full sm:w-96">
 				<p className="text-left text-gray-800 text-3xl font-bold border-b-2 border-gray-200 pb-1 cursor-text">
 					Hi there 👋
 				</p>
@@ -97,9 +97,7 @@ export default function ProfileDesc() {
 					.
 				</p>
 
-				<div
-                className="cursor-text"
-				>
+				<div className="cursor-text">
 					<p className="text-left text-gray-800 text-xl font-normal pt-2 mt-2">
 						I am a front-end developer from{" "}
 						<span className=" bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-blue-500 font-semibold">
@@ -123,20 +121,19 @@ export default function ProfileDesc() {
 			>
 				<motion.div
 					id="list"
-					className="flex flex-col justify-center gap-2 w-full p-8 absolute top-0 left-0 right-0 bottom-28 bg-gray-100 cursor-auto"
+					className="flex flex-col justify-center gap-2 w-full p-8 absolute top-0 left-0 right-0 bottom-28 bg-gray-100 cursor-auto overflow-y-auto"
 					style={{
 						pointerEvents: isExpanded ? "auto" : "none",
 						clipPath: "inset(0% 0% 50% 0%)",
 					}}
 				>
-                    <div id="lang-item" className="flex flex-row justify-between pb-1 items-center border-b-2 border-gray-200">
-                        <p className="text-lg font-semibold">
-                            Skill Name
-                        </p>
-                        <p className="text-gray-500 text-lg">
-                            Level
-                        </p>
-                    </div>
+					<div
+						id="lang-item"
+						className="flex flex-row justify-between pb-1 items-center border-b-2 border-gray-200 mt-40 sm:mt-0"
+					>
+						<p className="text-lg font-semibold">Skill Name</p>
+						<p className="text-gray-500 text-lg">Level</p>
+					</div>
 					<ProgrammingLang
 						lang="HTML"
 						level={5}
@@ -155,12 +152,12 @@ export default function ProfileDesc() {
 						url="https://www.javascript.com/"
 						img="/js.png"
 					/>
-					<ProgrammingLang
+					{/* <ProgrammingLang
 						lang="TypeScript"
 						level={5}
 						url="https://www.typescriptlang.org/"
 						img="/ts.png"
-					/>
+					/> */}
 					<ProgrammingLang
 						lang="React"
 						level={5}
@@ -173,6 +170,18 @@ export default function ProfileDesc() {
 						url="https://nextjs.org/"
 						img="/nextjs.png"
 					/>
+					<ProgrammingLang
+						lang="Tailwind CSS"
+						level={5}
+						url="https://tailwindcss.com/"
+						img="/tailwind.png"
+					/>
+                    <ProgrammingLang
+                        lang="Solidworks"
+                        level={3}
+                        url="https://www.solidworks.com/"
+                        img="/solidworks.jpg"
+                    />
 				</motion.div>
 				<motion.button
 					className="bg-white/50 border border-gray-200 font-bold py-2 px-4 shadow-lg flex items-center justify-center"
@@ -197,9 +206,9 @@ export default function ProfileDesc() {
 						strokeLinecap="round"
 						strokeLinejoin="round"
 						className="feather feather-chevron-left ml-1"
-                        style={{
-                            transformOrigin: "50% 50%",
-                        }}
+						style={{
+							transformOrigin: "50% 50%",
+						}}
 					>
 						<polyline points="15 18 9 12 15 6"></polyline>
 					</svg>

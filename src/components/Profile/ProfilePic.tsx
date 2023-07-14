@@ -1,15 +1,23 @@
 import React from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { useIsSmall } from '@/hooks/useMediaQuery'
 
-const picDragConstraints = {
-    top: -8,
-    left: -8,
-    right: 8,
-    bottom: 8,
-};
+
 
 export default function ProfilePic() {
+    const picDragConstraints = useIsSmall() ? {
+        top: -8,
+        left: -8,
+        right: 8,
+        bottom: 8,
+    } : {
+        top:0,
+        left:0,
+        right:0,
+        bottom:0,
+    };
+    
   return (
     <motion.div 
         drag
@@ -31,10 +39,10 @@ export default function ProfilePic() {
                 },
             },
         }}
-    className='h-full bg-gray-50 border border-black/5 flex justify-center items-center p-5 shadow-sm cursor-grab'>
+    className='h-1/3 sm:h-full w-full sm:w-auto bg-gray-50 border border-black/5 flex justify-center items-center p-5 shadow-sm cursor-grab'>
         <div 
-        className="relative h-full w-80">
-            <Image src='/profile.png' fill alt="Profile Picture" className='object-cover pointer-events-none'/>
+        className="relative h-full w-full sm:w-80">
+            <Image src='/profile.png' fill alt="Profile Picture" className='object-cover pointer-events-none sm:object-center object-bottom'/>
         </div>
         
     </motion.div>

@@ -40,7 +40,7 @@ export default function Home() {
 			<motion.section
 				ref={section2}
 				id="section2"
-				className="flex flex-row items-center justify-center h-screen w-4/5 p-20 gap-10 "
+				className="flex flex-col sm:flex-row items-center justify-center h-screen w-full sm:w-4/5 p-2 sm:p-20 gap-4 sm:gap-10 "
         // style={{
         //   backgroundImage: "linear-gradient(to right, rgb(243,244,246) 1.2px, transparent 1.2px), linear-gradient(to bottom, rgb(243,244,246) 1.2px, transparent 1.2px);",
         //   backgroundSize: "20px 20px",
