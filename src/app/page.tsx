@@ -59,8 +59,8 @@ export default function Home() {
       {/* Contact Section */}
       <section
 				ref={section4}
-				id="section3"
-				className="flex flex-col items-center justify-center h-screen"
+				id="section4"
+				className="flex flex-col items-center justify-center h-screen mt-10"
 			>
 				<div className="font-bold text-8xl">
 					<h1>Section 4</h1>
